@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/poster/poster"
+  ],
+  "window": {
+    "defaultTitle": "IoT小程序官方Demo"
+  }
+}

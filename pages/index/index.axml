@@ -1,0 +1,30 @@
+<view class="main">
+  <view class="tips" hidden="{{!floatShown}}" onTap="hideFloat">
+    <view class="content postion_center">
+      <view class="scan_qr postion_center" a:if="{{shownCode !== ''}}">
+        <view class="qr_line" />
+        <image mode="scaleToFill" src="/assets/scan_qr.png"/>
+        <view class="tips_word">请使用设备摄像头扫码</view>
+      </view>
+      <view class="postion_center" a:else>
+        <image src="{{image}}" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+  <view class="title_block">
+    <view>IoT小程序官方Demo</view>
+    <view class="mini_title">*以下DEMO支持在蜻蜓系列机型演示</view>
+  </view>
+  <!--<view class="transform"></view> -->
+  <view class="author">蚂蚁技术支持</view>
+  <view class="{{['block',index === 0 ? 'more_space' : ''].join(' ')}}" a:for="{{btn_list}}">
+    <view class="title">{{item.name}}</view>
+    <view class="btn_list">
+      <view class="btn_item" a:for="{{item.btnList}}" a:for-item="btn" onTap="{{btn.func}}" data-key="{{btn.key}}">
+        <image mode="scaleToFill" src="/assets/{{btn.icon}}" class="btn_icon"/>
+      {{btn.label}}
+        <view class="btn_desc">{{btn.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>
