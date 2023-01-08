@@ -85,10 +85,10 @@
 }
 
 .main .title_block{
-  background: url(/assets/header_bg.png) 100% 100%;
+  background: url(/assets/bilibili_head.png) 100% 100%;
   background-size: 100% 100%;
   width:100vw;
-  height:55vw;
+  height:35vw;
   color:white;
   font-size:56rpx;
   text-align: center;

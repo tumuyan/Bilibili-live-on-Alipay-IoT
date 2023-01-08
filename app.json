@@ -1,9 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/poster/poster"
+    "pages/poster/poster",
+    "pages/bilibili/bilibili",
+    "pages/add_room/add_room",
+    "pages/bilibili_live/bilibili_live"
   ],
   "window": {
-    "defaultTitle": "IoT小程序官方Demo"
+    "defaultTitle": "Bilibili live Demo"
   }
 }

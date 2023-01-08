@@ -1,0 +1,4 @@
+
+<view>
+  <web-view src="https://live.bilibili.com/p/eden/area-tags?parentAreaId=9&areaId=0" />
+</view>
