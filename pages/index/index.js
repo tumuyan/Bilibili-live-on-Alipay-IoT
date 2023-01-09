@@ -119,13 +119,13 @@ Page({
       {
         name: '其他视频网站',
         btnList: [{
-          label: '抖音',
+          label: '抖音直播',
           func: 'callBilibiliLive',
           icon: 'douyin.svg',
           desc: '没什么卵用',
           url: "https://live.douyin.com/"
         }, {
-          label: '抖音直播',
+          label: '抖音短视频',
           func: 'callBilibiliLive',
           icon: 'douyin.svg',
           desc: '一个测试视频',
@@ -186,21 +186,40 @@ Page({
     });
   },
 
-
-  callBilibiliLive(e) {
-    // 进行页面跳转 - 打开直播间
-    console.log("callBilibiliLive() e:")
-    console.log(e.currentTarget.dataset)
-    let url = this.url = "https://live.bilibili.com/" + e.currentTarget.dataset.desc
-
-    if (e.currentTarget.dataset.url != undefined) {
-      url = e.currentTarget.dataset.url
-      console.log("e.currentTarget.dataset.url != undefined = " + url)
+  
+  openUrl(text) {
+    let patt = /^\d+$/gm;
+    let url = text;
+    if (patt.test(text)) {
+      url = "https://live.bilibili.com/" + text;
+    } else if (text.indexOf(".") == -1) {
+      url = "https://search.bilibili.com/all?keyword=" + text;
+    } else if (text.indexOf("http") == -1) {
+      url = "http://" + text;
     }
-    console.log("url = " + url)
+
+    console.log("openUrl(), url = " + url)
     my.navigateTo({
       url: `/pages/bilibili_live/bilibili_live?url=${url}`
     })
+
+  },
+
+
+
+  callBilibiliLive(e) {
+    // 进行页面跳转 - 打开item对应的网址或直播间
+    // console.log("callBilibiliLive() e:")
+    // console.log(e.currentTarget.dataset)
+
+    if (e.currentTarget.dataset.url != undefined) {
+      let url = e.currentTarget.dataset.url
+      console.log("e.currentTarget.dataset.url = " + url)
+      this.openUrl(url);
+    } else {
+      this.openUrl(e.currentTarget.dataset.desc);
+    }
+
   },
 
 
@@ -208,6 +227,26 @@ Page({
     // 进行页面跳转
     my.navigateTo({
       url: '../add_room/add_room'
+    });
+  },
+
+
+  handleSearch(e) {
+    console.log('search', e.detail.value);
+    this.setData({
+      search: e.detail.value,
+    });
+  },
+  doneSearch() {
+    let text = this.data.search
+    console.log('doneSearch', text);
+    this.openUrl(text);
+    my.hideKeyboard();
+  },
+  clearSearch() {
+    console.log('clear search', this.data.search);
+    this.setData({
+      search: '',
     });
   },
 

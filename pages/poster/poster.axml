@@ -1,7 +1,0 @@
-<view>
-  <poster
-        class="my_poster"
-        id="my_poster_id"
-        posid="idle_pos" audible="{{true}}"
-        style="width:100vw; height:100vh;"/>
-</view>

@@ -1,12 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/poster/poster",
-    "pages/bilibili/bilibili",
     "pages/add_room/add_room",
     "pages/bilibili_live/bilibili_live"
   ],
   "window": {
-    "defaultTitle": "Bilibili live Demo"
+    "defaultTitle": "Bilibili Live"
   }
 }
