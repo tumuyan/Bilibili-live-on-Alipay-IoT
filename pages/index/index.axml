@@ -61,7 +61,6 @@
         onTap="callBilibiliLive"
         data-key="{{btn.key}}"
         data-desc={{btn.desc}}
-        onLongTap="callEditRoom"
       >
         <image mode="scaleToFill" src="/assets/active.png" class="btn_icon" />
         {{btn.label}}

@@ -236,7 +236,10 @@ testImg(){
 },
 
 callEditRoom(e){
-  console.log(JSON.stringify(e))
+  console.log(JSON.stringify(e.currentTarget.dataset))
+  my.navigateTo({
+    url: `../add_room/add_room?desc=${e.currentTarget.dataset.desc}&title=${e.currentTarget.dataset.label}`
+  });
 },
 
   callBilibiliLive(e) {

@@ -6,9 +6,8 @@ Page({
     inputDesc: '',
   },
 
-  
-  onLoad(query) {
 
+  onLoad(query) {
     console.log(query);
     if (query.desc != undefined) {
       this.data.inputDesc = query.desc
@@ -16,25 +15,21 @@ Page({
     if (query.title != undefined) {
       this.data.inputTitle = query.title
     }
-
   },
 
-
   onBlur(e) {
-    console.log("onBlur" + JSON.stringify(e))
+    // console.log("onBlur" + JSON.stringify(e))
     this.setData({
       inputDesc: e.detail.value,
     });
   },
 
   bindTitle(e) {
-    console.log("bindTitle" + JSON.stringify(e))
+    // console.log("bindTitle" + JSON.stringify(e))
     this.setData({
       inputTitle: e.detail.value,
     });
   },
-
-
 
   add() {
     console.log("add room");
@@ -59,9 +54,15 @@ Page({
       desc: this.data.inputDesc,
     }, ]);
 
-    console.log("add room result:" + JSON.stringify(app.rooms))
-    //   label: '勾檀Mayumi', 
-    //   desc: '22778610'
+    console.log("add room:" + JSON.stringify(app.rooms))
+
+    let res = my.setStorageSync({
+      key: 'rooms',
+      data: app.rooms,
+    });
+
+    // console.log(res)
+
     my.navigateBack();
   },
 });
