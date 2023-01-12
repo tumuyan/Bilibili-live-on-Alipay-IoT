@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     btn_list: [{
@@ -22,6 +24,13 @@ Page({
             icon: 'version.png',
             desc: '动态和直播',
             url: "https://t.bilibili.com/"
+          },
+
+          {
+            label: 'Test',
+            func: 'testImg',
+            icon: 'version.png',
+            desc: '拍照和相册'
           }
 
         ]
@@ -147,6 +156,9 @@ Page({
   onShow() {
     // 页面显示
     this.startListenKeyboardEvent();
+    
+    // 设置全局数据到当前页面数据
+    this.setData({ rooms: app.rooms });
   },
   onHide() {
     // 页面隐藏
@@ -205,7 +217,27 @@ Page({
 
   },
 
+testImg(){
+  // IoT设备实测无法直接调用摄像头
+  my.chooseImage({
+    sourceType: ['camera', 'album'],
+    count: 2,
+    success: (res) => {
+      console.log(res);
+      my.previewImage({
+        urls: res.tempFilePaths, // 使用所选中图片的本地临时文件路径列表
+      });
+    },
+    fail: (res) => {
+      // 可自行查看错误信息并进行相关处理
+      console.log(res);
+    }
+  })
+},
 
+callEditRoom(e){
+  console.log(JSON.stringify(e))
+},
 
   callBilibiliLive(e) {
     // 进行页面跳转 - 打开item对应的网址或直播间

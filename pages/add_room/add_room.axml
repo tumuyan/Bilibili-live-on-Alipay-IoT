@@ -1,16 +1,14 @@
 <view class="page-add-todo">
 
   <view class="add-todo">
-    <input 
-      class="add-todo-input"
-      placeholder="What needs to be done?"
-      onBlur="onBlur"
-      value="{{inputValue}}"
-    />
+    <input class="add-todo-input" onInput="bindTitle" placeholder="标题" value="{{inputTitle}}" />
+  </view>
+  <view class="add-todo">
+    <input class="add-todo-input" onBlur="onBlur" placeholder="直播间ID或URL" value="{{inputDesc}}" />
   </view>
 
   <view class="todo-footer">
-    <add-button text="Add Todo" onClickMe="add" ></add-button>
+    <add-button text="添加项目" onClickMe="add"></add-button>
   </view>
-  
+
 </view>
