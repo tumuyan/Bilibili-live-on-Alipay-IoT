@@ -5,12 +5,18 @@ Page({
     btn_list: [{
         name: '我的...',
         btnList: [{
-            label: 'MacroDeck',
-            func: 'callBilibiliLive',
-            icon: 'macrodeck.png',
-            desc: '控制台',
-            url: 'http://web.macrodeck.org/'
-          },
+          label: 'MacroDeck',
+          func: 'callBilibiliLive',
+          icon: 'macrodeck.png',
+          desc: '控制台',
+          url: 'http://web.macrodeck.org/'
+        },{
+          label: '时间',
+          func: 'callBilibiliLive',
+          icon: 'time.svg',
+          desc: 'time.is',
+          url: 'https://time.is/'
+        },
           {
             label: '我的直播间',
             func: 'callBilibiliLive',
@@ -26,12 +32,12 @@ Page({
             url: "https://t.bilibili.com/"
           },
 
-          {
-            label: 'Test',
-            func: 'testImg',
-            icon: 'version.png',
-            desc: '拍照和相册'
-          }
+          // {
+          //   label: 'Test',
+          //   func: 'testImg',
+          //   icon: 'version.png',
+          //   desc: '拍照和相册'
+          // }
 
         ]
       },
