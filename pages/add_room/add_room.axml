@@ -8,7 +8,7 @@
   </view>
 
   <view class="todo-footer">
-    <add-button text="添加项目" onClickMe="add"></add-button>
+    <add-button text="{{edit}}" onClickMe="add"></add-button>
   </view>
 
 </view>

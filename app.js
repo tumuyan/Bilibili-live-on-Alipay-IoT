@@ -3,9 +3,14 @@ App({
     // 第一次打开
     // options.query == {number:1}
     console.info('App onLaunch');
-     let res = my.getStorageSync({ key: 'rooms' });
-     this.rooms = res.data;
-     console.log(res);
+    let res = my.getStorageSync({
+      key: 'rooms'
+    });
+    if (res.data != null) {
+      this.rooms = res.data;
+    }
+
+    console.log(res);
   },
   onShow(options) {
     // 从后台被 scheme 重新打开

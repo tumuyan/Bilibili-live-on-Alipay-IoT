@@ -236,9 +236,9 @@ testImg(){
 },
 
 callEditRoom(e){
-  console.log(JSON.stringify(e.currentTarget.dataset))
+  console.log("callEditRoom: "+JSON.stringify(e))
   my.navigateTo({
-    url: `../add_room/add_room?desc=${e.currentTarget.dataset.desc}&title=${e.currentTarget.dataset.label}`
+    url: `../add_room/add_room?desc=${e.currentTarget.dataset.desc}&title=${e.currentTarget.dataset.title}&iid=${e.currentTarget.dataset.iid}`
   });
 },
 

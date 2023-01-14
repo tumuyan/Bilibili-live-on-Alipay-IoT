@@ -59,8 +59,10 @@
         a:for="{{rooms}}"
         a:for-item="btn"
         onTap="callBilibiliLive"
-        data-key="{{btn.key}}"
+        data-title="{{btn.label}}"
         data-desc={{btn.desc}}
+        data-iid={{btn.iid}}
+        onLongTap="callEditRoom"
       >
         <image mode="scaleToFill" src="/assets/active.png" class="btn_icon" />
         {{btn.label}}
