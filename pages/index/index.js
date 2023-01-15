@@ -5,18 +5,18 @@ Page({
     btn_list: [{
         name: '我的...',
         btnList: [{
-          label: 'MacroDeck',
-          func: 'callBilibiliLive',
-          icon: 'macrodeck.png',
-          desc: '控制台',
-          url: 'http://web.macrodeck.org/'
-        },{
-          label: '时间',
-          func: 'callBilibiliLive',
-          icon: 'time.svg',
-          desc: 'time.is',
-          url: 'https://time.is/'
-        },
+            label: 'MacroDeck',
+            func: 'callBilibiliLive',
+            icon: 'macrodeck.png',
+            desc: '控制台',
+            url: 'http://web.macrodeck.org/'
+          }, {
+            label: '时间',
+            func: 'callBilibiliLive',
+            icon: 'time.svg',
+            desc: 'time.is',
+            url: 'https://time.is/'
+          },
           {
             label: '我的直播间',
             func: 'callBilibiliLive',
@@ -162,9 +162,11 @@ Page({
   onShow() {
     // 页面显示
     this.startListenKeyboardEvent();
-    
+
     // 设置全局数据到当前页面数据
-    this.setData({ rooms: app.rooms });
+    this.setData({
+      rooms: app.rooms
+    });
   },
   onHide() {
     // 页面隐藏
@@ -198,13 +200,19 @@ Page({
 
 
   callBilibiliVTuber() {
-    // 进行页面跳转 - 
+    // 进行页面跳转
     my.navigateTo({
       url: '../bilibili/bilibili'
     });
   },
 
-  
+  callCheckRoom(){
+    // 检查自定义直播间的开播情况
+    my.navigateTo({
+      url: '../check_room/check_room'
+    });
+  },
+
   openUrl(text) {
     let patt = /^\d+$/gm;
     let url = text;
@@ -223,30 +231,30 @@ Page({
 
   },
 
-testImg(){
-  // IoT设备实测无法直接调用摄像头
-  my.chooseImage({
-    sourceType: ['camera', 'album'],
-    count: 2,
-    success: (res) => {
-      console.log(res);
-      my.previewImage({
-        urls: res.tempFilePaths, // 使用所选中图片的本地临时文件路径列表
-      });
-    },
-    fail: (res) => {
-      // 可自行查看错误信息并进行相关处理
-      console.log(res);
-    }
-  })
-},
+  testImg() {
+    // IoT设备实测无法直接调用摄像头
+    my.chooseImage({
+      sourceType: ['camera', 'album'],
+      count: 2,
+      success: (res) => {
+        console.log(res);
+        my.previewImage({
+          urls: res.tempFilePaths, // 使用所选中图片的本地临时文件路径列表
+        });
+      },
+      fail: (res) => {
+        // 可自行查看错误信息并进行相关处理
+        console.log(res);
+      }
+    })
+  },
 
-callEditRoom(e){
-  console.log("callEditRoom: "+JSON.stringify(e))
-  my.navigateTo({
-    url: `../add_room/add_room?desc=${e.currentTarget.dataset.desc}&title=${e.currentTarget.dataset.title}&iid=${e.currentTarget.dataset.iid}`
-  });
-},
+  callEditRoom(e) {
+    console.log("callEditRoom: " + JSON.stringify(e))
+    my.navigateTo({
+      url: `../add_room/add_room?desc=${e.currentTarget.dataset.desc}&title=${e.currentTarget.dataset.title}&iid=${e.currentTarget.dataset.iid}`
+    });
+  },
 
   callBilibiliLive(e) {
     // 进行页面跳转 - 打开item对应的网址或直播间

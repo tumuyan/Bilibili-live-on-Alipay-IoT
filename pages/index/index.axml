@@ -40,16 +40,20 @@
     </view>
     <view class="btn_list">
 
-      <view
-        class="btn_item"
-        onTap="callAddRoom"
-        data-key="添加直播间"
-        data-desc={{btn.desc}}
-      >
+      <view class="btn_item" onTap="callAddRoom" data-key="添加直播间" data-desc={{btn.desc}}>
         <image mode="scaleToFill" src="/assets/setting.png" class="btn_icon" />
         添加直播间
         <view class="btn_desc">
-         
+
+        </view>
+      </view>
+
+      
+      <view class="btn_item" onTap="callCheckRoom" data-key="检查直播间" data-desc={{btn.desc}}>
+        <image mode="scaleToFill" src="/assets/list.svg" class="btn_icon" />
+        检查直播间
+        <view class="btn_desc">
+
         </view>
       </view>
 

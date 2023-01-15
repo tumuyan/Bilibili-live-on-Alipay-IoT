@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/add_room/add_room",
-    "pages/bilibili_live/bilibili_live"
+    "pages/bilibili_live/bilibili_live",
+    "pages/check_room/check_room"
   ],
   "window": {
     "defaultTitle": "Bilibili Live"

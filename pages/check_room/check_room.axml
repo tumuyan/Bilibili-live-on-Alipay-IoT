@@ -1,0 +1,17 @@
+<view class="page">
+  <view
+    class="btn_item"
+    a:for="{{items}}"
+    a:for-item="item"
+    onTap="callBilibiliLive"
+    data-title="{{item.label}}"
+    data-desc={{item.desc}}
+    data-iid={{item.cover}}
+  >
+    <image mode="scaleToFill" src={{item.cover}} class="btn_icon" />
+    {{item.label}}
+    <view class="btn_desc">
+      {{item.desc}}
+    </view>
+  </view>
+</view>
